@@ -44,32 +44,32 @@ Ao final da trilha de exemplos, o estudante deve ser capaz de:
 algoritmo-programacao/
 ├── README.md
 ├── src/
-│   ├── 1-introducao/                # UA1 · Aula 04
-│   │   ├── CalculaMedia.java        # variáveis, entrada/saída, aritmética (demo)
-│   │   └── PrecoComDesconto.java    # exercício oficial de laboratório da Aula 04
-│   ├── 2-condicao/                  # UA2 · Aula 06 — Parte A
-│   │   ├── CalculaResultado.java    # if/else if/else, if aninhado, for (demonstração guiada)
-│   │   ├── MaiorDeTres.java         # A1 — maior de 3 números, com empate
-│   │   ├── ClassificaTriangulo.java # A2 — equilátero / isósceles / escaleno
-│   │   ├── CalculaIMC.java          # A3 — IMC e faixa de classificação
-│   │   └── AnoBissexto.java         # A4 — ano bissexto (operadores lógicos)
-│   ├── 3-repeticao/                 # UA2 · Aula 06 — Parte B e Desafio
-│   │   ├── SomaCinco.java           # laço while + acumulador (demo)
-│   │   ├── Contador.java            # laço for + contador (demo)
-│   │   ├── SomaAteN.java            # B1 — soma de 1 até N
-│   │   ├── MediaCincoNotas.java     # B2 — média de 5 notas + quantas acima da média
-│   │   ├── ContarParesAteZero.java  # B3 — laço com sentinela (para ao digitar 0)
-│   │   ├── MenuDoWhile.java         # B4 — menu com do-while
-│   │   ├── TabuadaCompleta.java     # D3 — laço aninhado (for dentro de for)
-│   │   ├── FizzBuzz.java            # D1 — FizzBuzz de 1 a 100
-│   │   └── ValidarSenha.java        # D2 — validação com do-while
-│   └── 4-metodos/                   # UA2 · Aula 08
-│       ├── CalculaMediaMetodo.java  # anatomia de um método (parâmetros + retorno)
-│       ├── Dobro.java               # passagem por valor / escopo
-│       ├── MetodosSimples.java      # métodos com parâmetros e retorno (Parte A)
-│       ├── SituacaoAluno.java       # decomposição de um programa em métodos (Parte B, gabarito)
-│       └── MaiorSobrecarga.java     # sobrecarga de métodos (desafio opcional)
-└── out/                             # artefatos de compilação do IntelliJ (ignorado no Git)
+   ├── 1-introducao/                # UA1 · Aula 04
+   │   ├── CalculaMedia.java        # variáveis, entrada/saída, aritmética (demo)
+   │   └── PrecoComDesconto.java    # exercício oficial de laboratório da Aula 04
+   ├── 2-condicao/                  # UA2 · Aula 06 — Parte A
+   │   ├── CalculaResultado.java    # if/else if/else, if aninhado, for (demonstração guiada)
+   │   ├── MaiorDeTres.java         # A1 — maior de 3 números, com empate
+   │   ├── ClassificaTriangulo.java # A2 — equilátero / isósceles / escaleno
+   │   ├── CalculaIMC.java          # A3 — IMC e faixa de classificação
+   │   └── AnoBissexto.java         # A4 — ano bissexto (operadores lógicos)
+   ├── 3-repeticao/                 # UA2 · Aula 06 — Parte B e Desafio
+   │   ├── SomaCinco.java           # laço while + acumulador (demo)
+   │   ├── Contador.java            # laço for + contador (demo)
+   │   ├── SomaAteN.java            # B1 — soma de 1 até N
+   │   ├── MediaCincoNotas.java     # B2 — média de 5 notas + quantas acima da média
+   │   ├── ContarParesAteZero.java  # B3 — laço com sentinela (para ao digitar 0)
+   │   ├── MenuDoWhile.java         # B4 — menu com do-while
+   │   ├── TabuadaCompleta.java     # D3 — laço aninhado (for dentro de for)
+   │   ├── FizzBuzz.java            # D1 — FizzBuzz de 1 a 100
+   │   └── ValidarSenha.java        # D2 — validação com do-while
+   └── 4-metodos/                   # UA2 · Aula 08
+       ├── CalculaMediaMetodo.java  # anatomia de um método (parâmetros + retorno)
+       ├── Dobro.java               # passagem por valor / escopo
+       ├── MetodosSimples.java      # métodos com parâmetros e retorno (Parte A)
+       ├── SituacaoAluno.java       # decomposição de um programa em métodos (Parte B, gabarito)
+       └── MaiorSobrecarga.java     # sobrecarga de métodos (desafio opcional)
+
 ```
 
 As pastas são numeradas **na ordem em que os assuntos são apresentados no curso**.
