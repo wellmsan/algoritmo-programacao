@@ -1,3 +1,8 @@
+/*
+ * RESOLUÇÃO DE EXERCÍCIO — Laboratório da Aula 04 (UA1)
+ * Calcula o preço final de um produto com desconto.
+ * Continuação, em Java, do "Problema 2" resolvido em pseudocódigo na Aula 02.
+ */
 import java.util.Scanner;
 
 public class PrecoComDesconto {

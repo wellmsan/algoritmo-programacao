@@ -1,3 +1,7 @@
+/*
+ * RESOLUÇÃO DE EXERCÍCIO — D2, desafio opcional (Laboratório da Aula 06)
+ * Repete a leitura de uma senha (do-while) até ela ter 6+ caracteres.
+ */
 import java.util.Scanner;
 
 public class ValidarSenha {

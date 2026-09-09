@@ -1,3 +1,7 @@
+/*
+ * RESOLUÇÃO DE EXERCÍCIO — A1 (Laboratório da Aula 06, Parte A — Condicionais)
+ * Lê 3 números e informa o maior, tratando o caso de empate.
+ */
 import java.util.Scanner;
 
 public class MaiorDeTres {

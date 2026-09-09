@@ -1,3 +1,7 @@
+/*
+ * RESOLUÇÃO DE EXERCÍCIO — D1, desafio opcional (Laboratório da Aula 06)
+ * FizzBuzz de 1 a 100.
+ */
 public class FizzBuzz {
     public static void main(String[] args){
         for(int i = 1; i <= 100; i++){

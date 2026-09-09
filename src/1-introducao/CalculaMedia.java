@@ -1,3 +1,8 @@
+/*
+ * MATERIAL DE AULA — demonstração
+ * Aula 04 (UA1 — Fundamentos de Algoritmos e Lógica de Programação)
+ * Média de duas notas: variáveis double, leitura com Scanner e aritmética.
+ */
 import java.util.Scanner;
 
 public class CalculaMedia {

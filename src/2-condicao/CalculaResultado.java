@@ -1,3 +1,8 @@
+/*
+ * MATERIAL DE AULA — demonstração guiada
+ * Aula 06 (UA2 — Estruturas de Controle e Modularização)
+ * Classifica uma nota (Aprovado / Exame Final / Reprovado) com if/else if/else e for.
+ */
 import java.util.Scanner;
 
 public class CalculaResultado {

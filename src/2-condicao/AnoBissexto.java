@@ -1,3 +1,7 @@
+/*
+ * RESOLUÇÃO DE EXERCÍCIO — A4 (Laboratório da Aula 06, Parte A — Condicionais)
+ * Diz se um ano é bissexto: divisível por 4 e (não por 100, ou por 400).
+ */
 import java.util.Scanner;
 
 public class AnoBissexto {

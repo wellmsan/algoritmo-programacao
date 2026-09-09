@@ -1,3 +1,7 @@
+/*
+ * RESOLUÇÃO DE EXERCÍCIO — B2 (Laboratório da Aula 06, Parte B — Repetição)
+ * Lê 5 notas, calcula a média e diz quantas notas ficaram acima da média.
+ */
 import java.util.Scanner;
 
 public class MediaCincoNotas {

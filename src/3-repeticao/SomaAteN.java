@@ -1,3 +1,7 @@
+/*
+ * RESOLUÇÃO DE EXERCÍCIO — B1 (Laboratório da Aula 06, Parte B — Repetição)
+ * Soma todos os inteiros de 1 até N, com N lido do teclado.
+ */
 import java.util.Scanner;
 
 public class SomaAteN {

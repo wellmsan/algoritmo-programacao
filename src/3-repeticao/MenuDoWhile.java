@@ -1,3 +1,7 @@
+/*
+ * RESOLUÇÃO DE EXERCÍCIO — B4 (Laboratório da Aula 06, Parte B — Repetição)
+ * Menu com do-while: 1-somar, 2-multiplicar, 3-sair.
+ */
 import java.util.Scanner;
 
 public class MenuDoWhile {

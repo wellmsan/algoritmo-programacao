@@ -1,3 +1,8 @@
+/*
+ * RESOLUÇÃO DE EXERCÍCIO — A2 (Laboratório da Aula 06, Parte A — Condicionais)
+ * Lê os 3 lados de um triângulo e classifica: equilátero, isósceles, escaleno
+ * ou "não formam triângulo".
+ */
 import java.util.Scanner;
 
 public class ClassificaTriangulo {

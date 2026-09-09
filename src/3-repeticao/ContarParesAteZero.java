@@ -1,3 +1,7 @@
+/*
+ * RESOLUÇÃO DE EXERCÍCIO — B3 (Laboratório da Aula 06, Parte B — Repetição)
+ * Lê números até o usuário digitar 0 (sentinela); ao final, mostra quantos foram pares.
+ */
 import java.util.Scanner;
 
 public class ContarParesAteZero {

@@ -1,3 +1,7 @@
+/*
+ * RESOLUÇÃO DE EXERCÍCIO — A3 (Laboratório da Aula 06, Parte A — Condicionais)
+ * Calcula o IMC (peso / altura²) e mostra a faixa de classificação.
+ */
 import java.util.Scanner;
 
 public class CalculaIMC {
