@@ -29,16 +29,12 @@ Ao final da trilha de exemplos, o estudante deve ser capaz de:
 
 | Ferramenta | Versão recomendada | Observação |
 |---|---|---|
-| **JDK** (Java Development Kit) | 17 ou superior (ambiente da disciplina usa **JDK 25**) | Fornece `javac` (compilador) e `java` (execução) |
-| Editor / IDE | IntelliJ IDEA Community, VS Code + Extension Pack for Java, ou qualquer editor de texto | O projeto já vem com metadados do IntelliJ (`.idea/`, `*.iml`), mas eles são ignorados no Git |
-| Terminal | zsh, bash, PowerShell, cmd | Necessário para compilar e executar pela linha de comando |
+| **JDK** (Java Development Kit) | 17 ou superior (ambiente da disciplina usa **JDK 25**) | Configurado dentro do IntelliJ (File ▸ Project Structure ▸ SDK) |
+| **IntelliJ IDEA Community** | Última versão estável | Única IDE usada na disciplina — o projeto já vem com os metadados prontos (`.idea/`, `*.iml`) |
 
-Verifique a instalação:
-
-```bash
-java -version
-javac -version
-```
+> Este repositório é pensado para ser aberto e executado **somente pelo IntelliJ**.
+> Não há instruções de linha de comando (`javac`/`java` direto no terminal) porque a
+> disciplina padroniza o fluxo pela IDE do início ao fim.
 
 ---
 
@@ -86,46 +82,34 @@ pasta numerada (`5-...`, `6-...` — veja o [Roadmap de conteúdo](#roadmap-de-c
 
 ---
 
-## Como compilar e executar
+## Como executar (pelo IntelliJ IDEA)
 
-### Opção A — Executar direto o arquivo-fonte (mais simples)
-
-A partir do JDK 11 é possível rodar um `.java` sem gerar `.class` manualmente.
-Execute a partir da **raiz do projeto**:
-
-```bash
-java src/3-repeticao/Contador.java
-```
-
-### Opção B — Compilar e depois executar (fluxo tradicional)
-
-Como não há `package`, entre na pasta do arquivo antes de compilar:
-
-```bash
-cd src/3-repeticao
-javac Contador.java      # gera Contador.class
-java Contador            # executa
-```
+1. **Abra o projeto:** `File ▸ Open...` e selecione a pasta raiz `algoritmo-programacao`
+   (o IntelliJ reconhece o `algoritmo-programacao.iml` automaticamente).
+2. **Confirme o SDK:** `File ▸ Project Structure ▸ Project` — deve haver um JDK 17+
+   selecionado. Se a lista estiver vazia, use `Add SDK ▸ Download JDK`.
+3. **Abra o arquivo** do exemplo que quer rodar (ex.: `src/3-repeticao/Contador.java`).
+4. **Execute:** clique no ícone ▶️ verde na margem esquerda, ao lado de
+   `public class ... {` ou de `public static void main`, e escolha **Run**. Também
+   funciona com `Ctrl+Shift+F10` (Windows/Linux) ou `Ctrl+R` (macOS).
+5. A saída aparece na aba **Run**, na parte inferior da janela.
 
 ### Programas que leem dados do teclado
 
 A maioria dos exemplos usa `Scanner` e fica aguardando entrada (exceções: `FizzBuzz` e
-`TabuadaCompleta`, que não leem nada). Você pode digitar os valores normalmente ou
-fornecê-los via *pipe*:
-
-```bash
-cd src/1-introducao
-javac CalculaMedia.java
-printf "7.5\n8.0\n" | java CalculaMedia
-```
+`TabuadaCompleta`, que não leem nada). Depois de clicar em ▶️, digite os valores
+**diretamente na aba Run** — ela funciona como um terminal simples: digite o valor e
+pressione Enter a cada `leitor.nextX()` do programa.
 
 > **Números decimais:** o `Scanner` respeita o *locale* do sistema. Em ambiente
 > configurado em português, use **vírgula** (`7,5`); em inglês, use **ponto** (`7.5`).
-> Se der `InputMismatchException`, tente trocar o separador.
+> Se aparecer `InputMismatchException` na aba Run, tente trocar o separador.
 
-### Pela IDE
+### Reexecutar rapidamente
 
-Abra o projeto no IntelliJ IDEA e use o botão ▶️ ao lado do método `main` de cada classe.
+Depois da primeira execução de uma classe, o IntelliJ guarda uma **Run Configuration**
+para ela: use o botão ▶️ verde na barra de ferramentas superior (ou `Shift+F10` /
+`Ctrl+R`) para rodar de novo a última classe executada, sem precisar reabrir o arquivo.
 
 ---
 
@@ -348,8 +332,8 @@ para `double`. Java escolhe a versão certa pelos parâmetros da chamada.
 
 ## Fluxo de trabalho sugerido para os alunos
 
-1. Faça um *fork* ou clone deste repositório.
-2. Antes de cada aula, execute os exemplos da pasta correspondente ao tópico.
+1. Faça um *fork* ou clone deste repositório e abra a pasta no IntelliJ IDEA.
+2. Antes de cada aula, execute pelo IntelliJ os exemplos da pasta correspondente ao tópico.
 3. Modifique os exemplos: mude valores, condições e limites e **preveja a saída antes
    de rodar**.
 4. Crie suas próprias variações em uma pasta pessoal (ex.: `src/exercicios/`).
