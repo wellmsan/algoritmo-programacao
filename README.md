@@ -359,6 +359,6 @@ Unidades de Aprendizagem do Plano de Aulas da disciplina:
 ## Licença e uso
 
 Material didático de uso educacional na disciplina de Algoritmo e Programação da
-Ânima Educação (AGES). Livre para consulta, cópia e adaptação por estudantes e docentes.
+Ânima Educação. Livre para consulta, cópia e adaptação por estudantes e docentes.
 
 **Professor:** Welber Macedo
