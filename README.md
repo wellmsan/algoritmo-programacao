@@ -22,6 +22,8 @@ Ao final da trilha de exemplos, o estudante deve ser capaz de:
 - Repetir instruções com **laços** (`while` e `for`) e usar **acumuladores** e **contadores**.
 - Escrever **métodos** com parâmetros e retorno, entender **escopo de variáveis** (passagem por
   valor) e **decompor** um programa maior em métodos reutilizáveis.
+- Armazenar e processar conjuntos de dados em **arrays** (`int[]`, `double[]`, `String[]`) e
+  dados tabulares em **matrizes** (`int[][]`), percorrendo-os com laços simples e aninhados.
 
 ---
 
@@ -68,7 +70,21 @@ algoritmo-programacao/
        ├── Dobro.java               # passagem por valor / escopo
        ├── MetodosSimples.java      # métodos com parâmetros e retorno (Parte A)
        ├── SituacaoAluno.java       # decomposição de um programa em métodos (Parte B, gabarito)
-       └── MaiorSobrecarga.java     # sobrecarga de métodos (desafio opcional)
+   │   └── MaiorSobrecarga.java     # sobrecarga de métodos (desafio opcional)
+   ├── 5-arrays/                    # UA3 · Aula 12 — Parte A e Desafio D1
+   │   ├── TemperaturasSemana.java  # ler → processar → exibir com double[] (demo)
+   │   ├── DobrarVetor.java         # array passado para método: referência (pergunta)
+   │   ├── InverterVetor.java       # A1 — exibir o vetor na ordem inversa
+   │   ├── MaiorMenorPosicao.java   # A2 — maior/menor valor e suas posições
+   │   ├── BuscarValor.java         # A3 — busca linear: ocorrências e 1ª posição
+   │   ├── AprovadosTurma.java      # A4 — vetores paralelos (nomes + médias)
+   │   └── RotacionarVetor.java     # D1 — rotacionar uma posição à direita
+   └── 6-matrizes-colecoes/         # UA3 · Aula 12 — Parte B e Desafio D2
+       ├── MatrizNotas.java         # double[][], laço aninhado, média por linha (demo)
+       ├── LerMatriz.java           # B1 — ler 3x3, exibir como tabela, somar
+       ├── Diagonais.java           # B2 — diagonal principal e secundária
+       ├── VendasPorLoja.java       # B3 — totais por linha, por coluna e maior total
+       └── MatrizTransposta.java    # D2 — transposta (dimensões invertidas)
 
 ```
 
@@ -314,6 +330,90 @@ compilador — não corrija o arquivo para isso, é para o erro aparecer ao vivo
 Sobrecarga de métodos (*overloading*) — duas versões de `maior`, uma para `int` e outra
 para `double`. Java escolhe a versão certa pelos parâmetros da chamada.
 
+### UA3 · Aula 12 — Parte A (vetores) — `5-arrays/`
+
+#### 22. `TemperaturasSemana.java` — demonstração guiada
+
+**Conceitos:** `new double[7]`, `length`, percurso com `for`, padrões **acumular**,
+**maior/menor** (inicializados com o primeiro elemento, não com `0`) e **contar**.
+
+Lê as temperaturas da semana e mostra média, maior, menor e quantos dias ficaram acima da
+média. Mostra *por que* o vetor é necessário: a contagem só pode ser feita depois que a
+média é conhecida, então os valores precisam continuar disponíveis.
+
+```
+(entrada: 30 28 32 25 27 33 29)
+Média: 29.142857142857142
+Maior: 33.0
+Menor: 25.0
+Dias acima da média: 3
+```
+
+#### 23. `DobrarVetor.java` — pergunta de verificação
+
+**Conceitos:** array como parâmetro de método; `Arrays.toString`.
+
+Contraponto a `4-metodos/Dobro.java`: lá o `int` não mudava no `main`; aqui o método
+recebe uma cópia da **referência** para o mesmo vetor, então alterar `v[i]` altera o vetor
+original. Imprime `[2, 4, 6]`.
+
+#### 24. `InverterVetor.java` — exercício A1
+
+Lê 5 inteiros e exibe-os de trás para frente (`for` de `length - 1` até `0`).
+
+#### 25. `MaiorMenorPosicao.java` — exercício A2
+
+Encontra maior e menor venda **e o dia** em que ocorreram, guardando a *posição*
+(`posMaior`, `posMenor`) em vez do valor.
+
+#### 26. `BuscarValor.java` — exercício A3
+
+Busca linear: conta as ocorrências de um valor e registra a primeira posição, usando `-1`
+como sinal de "não encontrado". Prepara as operações de busca da Aula 14.
+
+#### 27. `AprovadosTurma.java` — exercício A4
+
+**Vetores paralelos** (`String[] nomes` + `double[] medias`): o mesmo índice descreve o
+mesmo aluno. Lista os aprovados e a média da turma.
+
+#### 28. `RotacionarVetor.java` — desafio D1
+
+Rotaciona o vetor uma posição à direita (`{1,2,3,4,5}` → `{5,1,2,3,4}`). O ponto do
+desafio: percorrer de trás para frente e salvar o último antes de sobrescrever.
+
+### UA3 · Aula 12 — Parte B (matrizes) — `6-matrizes-colecoes/`
+
+#### 29. `MatrizNotas.java` — demonstração guiada
+
+**Conceitos:** `double[][]` inicializada com chaves, `m.length` (linhas) × `m[0].length`
+(colunas), laço aninhado linha → coluna, acumulador por linha.
+
+```
+Aluno 0: 7.0	8.5	6.0	| média = 7.166666666666667
+Aluno 1: 5.0	4.5	6.5	| média = 5.333333333333333
+Aluno 2: 9.0	9.5	10.0	| média = 9.5
+Aluno 3: 6.0	7.0	8.0	| média = 7.0
+```
+
+#### 30. `LerMatriz.java` — exercício B1
+
+Lê uma matriz 3×3, exibe-a como tabela (`\t` entre colunas, `println()` ao fim de cada
+linha) e soma todos os elementos.
+
+#### 31. `Diagonais.java` — exercício B2
+
+Soma a diagonal principal (`m[i][i]`) e a secundária (`m[i][n - 1 - i]`) com **um único**
+laço — resultado esperado: `22` e `20`.
+
+#### 32. `VendasPorLoja.java` — exercício B3
+
+`vendas[loja][semana]`: total por loja (soma das linhas), total por semana (soma das
+colunas — os laços trocam de papel) e a loja campeã (`Loja 2`, `740`).
+
+#### 33. `MatrizTransposta.java` — desafio D2
+
+Transposta de uma 2×3 em uma nova matriz 3×2: `t[col][lin] = m[lin][col]`.
+
 ---
 
 ## Convenções do repositório
@@ -342,12 +442,13 @@ para `double`. Java escolhe a versão certa pelos parâmetros da chamada.
 
 ## Roadmap de conteúdo
 
-Pastas já criadas (1 a 4) cobrem a **UA1** (sequencial) e a **UA2** (condicionais,
-repetição e métodos). Próximos tópicos que devem ganhar pastas, seguindo a ordem das
+Pastas já criadas (1 a 6) cobrem a **UA1** (sequencial), a **UA2** (condicionais,
+repetição e métodos) e o início da **UA3** (arrays e matrizes, Aula 12). Próximos tópicos que devem ganhar pastas, seguindo a ordem das
 Unidades de Aprendizagem do Plano de Aulas da disciplina:
 
-- `5-arrays/` — arranjos unidimensionais (UA3 — Aulas 11–12)
-- `6-matrizes-colecoes/` — arranjos bidimensionais, coleções, busca/inserção/remoção (UA3 — Aulas 13–14)
+- ~~`5-arrays/`~~ — criada (Aula 12)
+- `6-matrizes-colecoes/` — **matrizes já criadas (Aula 12)**; faltam coleções (`ArrayList`)
+  e busca/inserção/remoção (UA3 — Aulas 13–14)
 - `7-poo-classes/` — classes, objetos e encapsulamento (UA5 — Aulas 21–22)
 - `8-poo-avancado/` — herança, polimorfismo, interfaces e exceções (UA6 — Aulas 23–26)
 
