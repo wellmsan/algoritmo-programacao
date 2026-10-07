@@ -24,6 +24,8 @@ Ao final da trilha de exemplos, o estudante deve ser capaz de:
   valor) e **decompor** um programa maior em métodos reutilizáveis.
 - Armazenar e processar conjuntos de dados em **arrays** (`int[]`, `double[]`, `String[]`) e
   dados tabulares em **matrizes** (`int[][]`), percorrendo-os com laços simples e aninhados.
+- **Buscar, inserir e remover** elementos em arrays (controlando a quantidade em uso e
+  deslocando elementos) e em **coleções** (`ArrayList`), comparando o custo de cada operação.
 
 ---
 
@@ -84,7 +86,16 @@ algoritmo-programacao/
        ├── LerMatriz.java           # B1 — ler 3x3, exibir como tabela, somar
        ├── Diagonais.java           # B2 — diagonal principal e secundária
        ├── VendasPorLoja.java       # B3 — totais por linha, por coluna e maior total
-       └── MatrizTransposta.java    # D2 — transposta (dimensões invertidas)
+       ├── MatrizTransposta.java    # D2 — transposta (dimensões invertidas)
+       │                            # UA3 · Aula 16 — busca, inserção e remoção + ArrayList
+       ├── InserirRemoverVetor.java # array com qtd: buscar/inserir/remover (demo)
+       ├── ListaArrayList.java      # API básica do ArrayList (demo)
+       ├── InserirNaPosicao.java    # A1 — inserir em uma posição + contar deslocamentos
+       ├── RemoverValor.java        # A2 — buscar e remover a 1ª ocorrência
+       ├── ListaDeChamada.java      # B1 — ArrayList<String>: add, contains, remove
+       ├── CarrinhoDeCompras.java   # B2 — menu do-while sobre ArrayList
+       ├── InserirOrdenado.java     # D1 — inserção ordenada com add(pos, x)
+       └── EstoqueLoja.java         # Avaliação da UA3 — gabarito (listas paralelas)
 
 ```
 
@@ -369,7 +380,7 @@ Encontra maior e menor venda **e o dia** em que ocorreram, guardando a *posiçã
 #### 26. `BuscarValor.java` — exercício A3
 
 Busca linear: conta as ocorrências de um valor e registra a primeira posição, usando `-1`
-como sinal de "não encontrado". Prepara as operações de busca da Aula 14.
+como sinal de "não encontrado". Prepara as operações de busca da Aula 16.
 
 #### 27. `AprovadosTurma.java` — exercício A4
 
@@ -414,6 +425,68 @@ colunas — os laços trocam de papel) e a loja campeã (`Loja 2`, `740`).
 
 Transposta de uma 2×3 em uma nova matriz 3×2: `t[col][lin] = m[lin][col]`.
 
+### UA3 · Aula 16 — busca, inserção e remoção — `6-matrizes-colecoes/`
+
+> **Nota de planejamento (07/10/2026):** este laboratório estava previsto para a Aula 14
+> (30/09), que virou revisão geral e nivelamento; a teoria de coleções da Aula 13 (28/09)
+> também não foi ministrada como previsto. Por isso a Aula 16 abre com uma mini-aula de
+> `ArrayList` antes das operações e da Avaliação da UA3.
+
+#### 34. `InserirRemoverVetor.java` — demonstração guiada
+
+**Conceitos:** capacidade (`v.length`) × quantidade em uso (`qtd`), busca linear com `-1`,
+inserção deslocando para a direita (laço **de trás para frente**), remoção deslocando para a
+esquerda, método que devolve o novo `qtd` (o `int` é passado por valor; o array, não).
+
+```
+[10, 20, 40]  qtd = 3
+[10, 20, 30, 40]  qtd = 4
+20 está na posição 1
+[10, 30, 40]  qtd = 3
+99 está na posição -1
+```
+
+#### 35. `ListaArrayList.java` — demonstração guiada
+
+**Conceitos:** `import java.util.ArrayList`, `ArrayList<String>`, `add`, `add(i, x)`, `get`,
+`set`, `size`, `indexOf`, `contains`, `remove(valor)` × `remove(índice)`.
+
+*Discussão em aula:* em um `ArrayList<Integer>`, `lista.remove(1)` remove o **índice** 1, não
+o valor 1 — para remover pelo valor use `lista.remove(Integer.valueOf(1))`.
+
+#### 36. `InserirNaPosicao.java` — exercício A1
+
+Insere um valor na posição escolhida de `{5, 8, 12, 20}` (capacidade 10), valida vetor cheio e
+posição fora de `0..qtd` e mostra quantos elementos foram deslocados — base para discutir que
+inserir no início custa mais que inserir no fim.
+
+#### 37. `RemoverValor.java` — exercício A2
+
+Busca a 1ª ocorrência de um valor (`break` ao encontrar) e remove-a deslocando os seguintes; se
+a busca devolver `-1`, avisa e mantém o vetor.
+
+#### 38. `ListaDeChamada.java` — exercício B1
+
+Lê nomes até `"fim"` (sentinela com `String.equals`), consulta presença com `contains`/`indexOf`
+e remove quem saiu com `remove(Object)`, que devolve `true`/`false`.
+
+#### 39. `CarrinhoDeCompras.java` — exercício B2
+
+Menu `do-while` (adicionar, remover, buscar, listar). Mostra a armadilha do `nextInt()` seguido
+de `nextLine()`: é preciso um `leitor.nextLine()` extra para descartar o Enter.
+
+#### 40. `InserirOrdenado.java` — desafio D1
+
+Mantém um `ArrayList<Integer>` sempre ordenado: busca a posição do primeiro maior e usa
+`add(pos, x)`.
+
+#### 41. `EstoqueLoja.java` — Avaliação da UA3 (gabarito)
+
+Listas paralelas `produtos`/`quantidades` com métodos `buscar` (retorna `-1`), `cadastrar`
+(sem duplicar), `remover` (mesmo índice nas duas listas) e `listar` (com total em estoque).
+
+> **Não publique este gabarito no GitHub antes da aplicação da avaliação.**
+
 ---
 
 ## Convenções do repositório
@@ -443,16 +516,17 @@ Transposta de uma 2×3 em uma nova matriz 3×2: `t[col][lin] = m[lin][col]`.
 ## Roadmap de conteúdo
 
 Pastas já criadas (1 a 6) cobrem a **UA1** (sequencial), a **UA2** (condicionais,
-repetição e métodos) e o início da **UA3** (arrays e matrizes, Aula 12). Próximos tópicos que devem ganhar pastas, seguindo a ordem das
+repetição e métodos) e a **UA3** completa (arrays e matrizes na Aula 12; `ArrayList` e
+busca/inserção/remoção na Aula 16). Próximos tópicos que devem ganhar pastas, seguindo a ordem das
 Unidades de Aprendizagem do Plano de Aulas da disciplina:
 
 - ~~`5-arrays/`~~ — criada (Aula 12)
-- `6-matrizes-colecoes/` — **matrizes já criadas (Aula 12)**; faltam coleções (`ArrayList`)
-  e busca/inserção/remoção (UA3 — Aulas 13–14)
+- ~~`6-matrizes-colecoes/`~~ — criada (matrizes na Aula 12; `ArrayList` e
+  busca/inserção/remoção na Aula 16)
 - `7-poo-classes/` — classes, objetos e encapsulamento (UA5 — Aulas 21–22)
 - `8-poo-avancado/` — herança, polimorfismo, interfaces e exceções (UA6 — Aulas 23–26)
 
-> A UA4 (Aulas 15–18) é o projeto Java integrador — não introduz sintaxe nova, então não
+> A UA4 (condensada na Aula 18, 14/10) é o projeto Java integrador — não introduz sintaxe nova, então não
 > deve gerar uma pasta própria; seus exemplos combinam os tópicos de `1-` a `6-`.
 
 ---
