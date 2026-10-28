@@ -96,6 +96,23 @@ algoritmo-programacao/
        ├── CarrinhoDeCompras.java   # B2 — menu do-while sobre ArrayList
        ├── InserirOrdenado.java     # D1 — inserção ordenada com add(pos, x)
        └── EstoqueLoja.java         # Avaliação da UA3 — gabarito (listas paralelas)
+   └── 7-poo-classes/               # UA5 · Aula 22 — um subprojeto por exemplo
+       ├── demo1-produto-aberto/    # demo — 1ª classe, atributos públicos
+       │   ├── ProdutoAberto.java
+       │   └── ProblemaSemEncapsulamento.java   # (main) new, objetos distintos, estado inválido
+       ├── demo2-estoque-objetos/   # demo — classe encapsulada + lista de objetos
+       │   ├── Produto.java
+       │   └── EstoqueObjetos.java  # (main) EstoqueLoja refeito com ArrayList<Produto>
+       ├── a1-conta-bancaria/       # A1 — saldo encapsulado, sem setSaldo
+       │   ├── ContaBancaria.java
+       │   └── TestaConta.java      # (main)
+       ├── a2-b1-aluno-turma/       # A2 e B1 — o B1 reaproveita a classe Aluno do A2
+       │   ├── Aluno.java
+       │   ├── TestaAluno.java      # (main) A2
+       │   └── TurmaObjetos.java    # (main) B1 — ArrayList<Aluno> com menu
+       └── d1-carro/                # D1 — velocidade limitada a [0, máxima]
+           ├── Carro.java
+           └── TestaCarro.java      # (main)
 
 ```
 
@@ -487,12 +504,92 @@ Listas paralelas `produtos`/`quantidades` com métodos `buscar` (retorna `-1`), 
 
 > **Não publique este gabarito no GitHub antes da aplicação da avaliação.**
 
+### UA4 · Aula 18 — programa integrador e depuração — `6-matrizes-colecoes/`
+
+> **Nota de planejamento (13/10/2026):** a UA4 foi condensada na Aula 18 (14/10) — a Aula 15
+> não foi ministrada como prevista, a Aula 16 ficou com a UA3 e a Aula 17 (12/10) caiu em
+> feriado. Como a UA4 não introduz sintaxe nova, os exemplos ficam na pasta `6-`.
+
+#### 42. `DiarioDeClasse.java` — demonstração guiada
+
+Programa integrador: menu `do-while`, listas paralelas `nomes`/`notas`, validação da nota
+(0 a 10) antes de inserir, constante `MEDIA_APROVACAO` e um método por tarefa (`situacao`,
+`media`, `posicaoMaiorNota`, `listar`). Na demonstração de depuração, troque `>=` por `>` em
+`situacao()` para provocar o erro de limite (nota 7.0 reprovada) e encontrá-lo com breakpoint.
+
+#### 43–46. `BugMediaNotas`, `BugMaiorTemperatura`, `BugRemoverPares`, `BugBuscarNome` — Parte A
+
+> **Contêm erros propositais** (exercícios de depuração E1–E4). Não corrija no repositório.
+
+| Exercício | Sintoma | Erros |
+|---|---|---|
+| E1 `BugMediaNotas` | notas 7, 8, 10 → `Média: 3.0` | `soma = 0` dentro do laço; divisão `int / int` |
+| E2 `BugMaiorTemperatura` | `ArrayIndexOutOfBoundsException`; depois, maior = 0.0 | `i <= v.length`; `maior` começa em 0 |
+| E3 `BugRemoverPares` | `[4, 7, 9]` em vez de `[7, 9]` | `remove(i)` + `i++` pula o vizinho |
+| E4 `BugBuscarNome` | nenhum nome digitado é encontrado | `==` em `String`; `else return -1` dentro do laço |
+
+#### 47. `ControleGastos.java` — exercício B (gabarito)
+
+Listas paralelas `descricoes`/`valores`: registrar (recusa valor ≤ 0), listar, total e média
+(sem dividir por zero), maior gasto pela posição, remover pela descrição e opção inválida.
+
+#### 48. `VotacaoRepresentante.java` — Avaliação da UA4 (gabarito)
+
+Lê votos até 0, valida com `votoValido` (fora de 1..3 = nulo), conta em `votos[voto - 1]`
+alinhado ao `ArrayList` de candidatos e mostra percentuais e vencedor; trata o caso-limite de
+nenhum voto válido.
+
+> **Não publique este gabarito no GitHub antes da aplicação da avaliação.**
+
+### UA5 · Aula 22 — classes, objetos e encapsulamento — `7-poo-classes/`
+
+> **Nota de planejamento (28/10/2026):** a abertura da UA5 (prevista para a Aula 20) e o
+> encapsulamento (Aula 21) foram concentrados na Aula 22. A partir desta pasta, cada exemplo
+> é um **subprojeto** (subpasta) com mais de um arquivo: a classe de domínio (sem `main`) e o
+> programa que a usa (com `main`). Rode sempre o arquivo que tem `main`. Como todas as classes
+> continuam no pacote default, os nomes de classe não podem se repetir em `src/` — por isso o
+> A2 e o B1 dividem a pasta `a2-b1-aluno-turma/` (o B1 usa a classe `Aluno` do A2).
+
+#### 49–50. `demo1-produto-aberto/` — demonstração guiada
+
+Primeira classe: `nome`, `quantidade` e `preco` com acesso livre. O `main` cria dois objetos
+com `new` (cada um com os próprios valores) e depois mostra o problema: nada impede
+quantidade negativa (`-30 un.`) ou preço zero.
+
+#### 51–52. `demo2-estoque-objetos/` — demonstração guiada
+
+`Produto` encapsulado: atributos `private`, construtor com `this`, getters, `setPreco` com
+validação, sem `setQuantidade` (o estoque só muda por `entrada`/`saida`). `EstoqueObjetos`
+refaz o `EstoqueLoja` da Aula 16 com um único `ArrayList<Produto>` no lugar das listas paralelas.
+
+#### 53–54. `a1-conta-bancaria/` — exercício A1
+
+Depósito só com valor > 0; `sacar` devolve `boolean` e recusa valor acima do saldo.
+Saída esperada: `Ana: R$ 70.0`, `Bruno: R$ 0.0`.
+
+#### 55–56. `a2-b1-aluno-turma/` — exercício A2 (`Aluno` + `TestaAluno`)
+
+Setters validam a nota (0 a 10) e mantêm o valor anterior se inválida; `media()` e
+`situacao()` usam os atributos (limite: 7.0 = Aprovado).
+
+#### 57. `a2-b1-aluno-turma/TurmaObjetos.java` — exercício B1
+
+`ArrayList<Aluno>` com menu (cadastrar, listar com média/situação, melhor aluno, turma vazia,
+opção inválida). Nota inválida no construtor fica com o valor padrão `0.0` — bom gancho para
+discutir valores padrão de atributos.
+
+#### 58–59. `d1-carro/` — desafio D1
+
+Velocidade sempre entre 0 e a máxima; placa definida no construtor e sem setter.
+
 ---
 
 ## Convenções do repositório
 
 - **Um programa por arquivo**, com uma classe `public` contendo `main`. O nome da classe
-  é igual ao nome do arquivo.
+  é igual ao nome do arquivo. A partir de `7-poo-classes/`, cada exemplo é uma subpasta
+  (subprojeto): as classes de domínio (ex.: `Produto`) ficam em arquivo próprio, sem `main`,
+  ao lado do programa que as usa.
 - **Idioma português** em nomes de variáveis, comentários e mensagens.
 - Código **propositalmente simples**: sem frameworks, sem build tool, sem tratamento de
   exceções, sem abstrações. O foco é a legibilidade para quem está começando.
@@ -515,16 +612,16 @@ Listas paralelas `produtos`/`quantidades` com métodos `buscar` (retorna `-1`), 
 
 ## Roadmap de conteúdo
 
-Pastas já criadas (1 a 6) cobrem a **UA1** (sequencial), a **UA2** (condicionais,
+Pastas já criadas (1 a 7) cobrem a **UA1** (sequencial), a **UA2** (condicionais,
 repetição e métodos) e a **UA3** completa (arrays e matrizes na Aula 12; `ArrayList` e
-busca/inserção/remoção na Aula 16). Próximos tópicos que devem ganhar pastas, seguindo a ordem das
+busca/inserção/remoção na Aula 16) e a abertura da **UA5** (`7-poo-classes/`, Aula 22). Próximos tópicos que devem ganhar pastas, seguindo a ordem das
 Unidades de Aprendizagem do Plano de Aulas da disciplina:
 
 - ~~`5-arrays/`~~ — criada (Aula 12)
 - ~~`6-matrizes-colecoes/`~~ — criada (matrizes na Aula 12; `ArrayList` e
   busca/inserção/remoção na Aula 16)
-- `7-poo-classes/` — classes, objetos e encapsulamento (UA5 — Aulas 21–22)
-- `8-poo-avancado/` — herança, polimorfismo, interfaces e exceções (UA6 — Aulas 23–26)
+- ~~`7-poo-classes/`~~ — criada (classes, objetos e encapsulamento — UA5, Aula 22)
+- `8-poo-avancado/` — herança, polimorfismo, interfaces e exceções (UA6 — condensada na Aula 26)
 
 > A UA4 (condensada na Aula 18, 14/10) é o projeto Java integrador — não introduz sintaxe nova, então não
 > deve gerar uma pasta própria; seus exemplos combinam os tópicos de `1-` a `6-`.
